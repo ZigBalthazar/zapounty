@@ -35,8 +35,8 @@ Contributions are welcome! If you have ideas for features or improvements, pleas
 
 Stay connected with us on social media:
 
-- **Nostr**: [@your_nostr_handle](https://nostr.com/@your_nostr_handle) (Replace with your actual Nostr handle)
-- **Telegram**: [Join our Telegram group](https://t.me/your_telegram_group) (Replace with your actual Telegram group link)
+- **Nostr**: [@Zapounty](https://njump.me/npub1ulvrsldmdlwrzh026plfylr22rl8c068yd4uu7ww0s0s8zac486qzwrlwd) (Replace with your actual Nostr handle)
+<!-- - **Telegram**: [Join our Telegram group](https://t.me/your_telegram_group) (Replace with your actual Telegram group link) -->
 
 ## License
 

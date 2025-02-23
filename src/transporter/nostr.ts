@@ -35,7 +35,7 @@ export class NostrTransporter implements ITransporter {
     let event = {
       kind: 1,
       created_at: createdAt,
-      tags: [],
+      tags: [["t","devstr"],["t","dev"], ["t","zap"], ["t","bounty"], ["t","job"], ["t","jobstr"]],
       content: message,
     };
 

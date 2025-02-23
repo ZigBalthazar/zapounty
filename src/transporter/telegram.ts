@@ -22,6 +22,9 @@ export class TelegramTransporter implements ITransporter {
     await axios.post(`https://api.telegram.org/bot${this.botToken}/sendMessage`, {
       chat_id: this.chatId,
       text: message,
+      parse_mode: "Markdown",
     });
+
+    console.info("send new message to telegram")
   }
 }
