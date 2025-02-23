@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:16 AS build
+FROM node:18 AS build
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
@@ -20,7 +20,7 @@ RUN npm install -g typescript
 RUN tsc
 
 # Stage 2: Run
-FROM node:16 AS production
+FROM node:18 AS production
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
