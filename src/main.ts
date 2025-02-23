@@ -9,6 +9,7 @@ export default (app: Probot) => {
     try {
       const issue = context.payload.issue;
       const label = context.payload.label?.name;
+      const lang = context.payload.repository.language ?? "Unknown"
 
       if (label === "zap reward") {
         const comments = await context.octokit.issues.listComments({
@@ -22,7 +23,7 @@ export default (app: Probot) => {
           .find((request) => request !== null);
 
         if (zapRequest) {
-          const message = generateMessage(zapRequest.amount, issue.title, issue.html_url);
+          const message = generateMessage(zapRequest.amount, issue.title, issue.html_url, lang);
           await sendToAll(message);
         }
       }
@@ -35,10 +36,11 @@ export default (app: Probot) => {
     try {
       const comment = context.payload.comment.body;
       const issue = context.payload.issue;
+      const lang = context.payload.repository.language?? "Unknown"
       const zapRequest = parseZapReward(comment);
 
       if (zapRequest) {
-        const message = generateMessage(zapRequest.amount, issue.title, issue.html_url);
+        const message = generateMessage(zapRequest.amount, issue.title, issue.html_url, lang);
         await sendToAll(message);
       }
     } catch (error) {
@@ -86,11 +88,12 @@ function parseZapReward(comment: string) {
   }
 }
 
-function generateMessage(amount: number, title: string, link: string): string {
+function generateMessage(amount: number, title: string, link: string, language: string): string {
   return (
     `🌟 New Zap Reward Request 🌟\n\n` +
     `**Issue:** 📌 ${title}\n\n` +
-    `**Amount:** ${amount} Sats ⚡ \n\n` +
+    `**Amount:** ${amount} ⚡ Sats \n\n` +
+    `**Language:** 💻 ${language}\n\n` +
     `This reward has been requested for the following issue:\n` +
     `🔗 View Issue Here:\n${link}\n\n` +
     `Thank you for your participation! 🎉\n\n` +

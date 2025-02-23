@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  zapounty:
+    image: ghcr.io/zigbalthazar/zapounty:v0.0.4
+    ports:
+      - "6996:3000"
+    environment:
+      - NOSTR_PRIVATE_KEY=
+      - BOT_TOKEN=
+      - TELEGRAM_CHAT_ID=
+      - NOSTR_RELAYS=wss://jellyfish.land
+      - APP_ID=
+      - WEBHOOK_SECRET=
+      - PRIVATE_KEY=
+                 -----BEGIN RSA PRIVATE KEY-----
+
+                 -----END RSA PRIVATE KEY-----
