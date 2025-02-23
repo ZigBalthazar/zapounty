@@ -1,0 +1,22 @@
+{
+  "name": "zapounty",
+  "version": "0.0.1",
+  "main": "main.ts",
+  "repository": "https://github.com/ZigBalthazar/zapounty.git",
+  "author": "Zig balthazar <zigbalthazar@gmail.com>",
+  "license": "Apache",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "nostr-tools": "^2.10.4",
+    "probot": "^13.4.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "dev": "ts-node src/main.ts"
+  }
+}

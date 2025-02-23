@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  probot-app:
+    ports:
+      - "3000:3000"
+    environment:
+      - TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+      - TELEGRAM_CHAT_ID=your_telegram_chat_id
+      - NOSTR_RELAY_URL=your_nostr_relay_url
+      - NOSTR_PRIVATE_KEY=your_nostr_private_key
