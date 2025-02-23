@@ -1,6 +1,6 @@
 # Zapounty
 
-Zapounty is a GitHub app designed to notify the community about any Zap rewards related to GitHub issues in Nostr. With Zapounty, you can easily stay updated on rewards and incentives for contributions, making it easier to recognize and celebrate community efforts.
+[Zapounty](https://github.com/marketplace/zapounty) is a GitHub app designed to notify the community about any Zap rewards related to GitHub issues in Nostr. With Zapounty, you can easily stay updated on rewards and incentives for contributions, making it easier to recognize and celebrate community efforts.
 
 ## Features
 
@@ -10,14 +10,14 @@ Zapounty is a GitHub app designed to notify the community about any Zap rewards 
 
 ## Installation
 
-1. **Visit the GitHub Marketplace**: Go to the [GitHub Marketplace](https://github.com/marketplace) and search for Zapounty.
+1. **Visit the GitHub Marketplace**: Go to the [GitHub Marketplace](https://github.com/marketplace/zapounty) and search for Zapounty.
 2. **Install the App**: Click on the "Install" button and follow the instructions to install Zapounty for your GitHub organization or account.
 3. **Configure the App**: After installation, configure the app settings to specify which repositories you want to monitor for Zap rewards.
 
 ## Getting Started  
 
 1. **Visit the GitHub Marketplace**  
-   - Go to the GitHub Marketplace and search for **Zapounty**.  
+   - Go to the GitHub Marketplace: [**Zapounty**](https://github.com/marketplace/zapounty).  
 
 2. **Install the App**  
    - Click on the **"Install"** button.  
@@ -48,7 +48,7 @@ Contributions are welcome! If you have ideas for features or improvements, pleas
 
 Stay connected with us on social media:
 
-- **Nostr**: [@Zapounty](https://njump.me/npub1ulvrsldmdlwrzh026plfylr22rl8c068yd4uu7ww0s0s8zac486qzwrlwd)
+- **Nostr**: [@Zapounty](https://njump.me/npub1vmxx53y2e729j9skffxwljm3dudnrlhccngu76ltnqemhkxgvdssz9m00f)
 - **Telegram**: [Join our Telegram channel](https://t.me/zapounty)
 
 ## License
