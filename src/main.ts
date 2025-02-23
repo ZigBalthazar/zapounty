@@ -1,7 +1,9 @@
 import { Probot } from "probot";
 import { TransporterFactory } from "./transporter.factory";
+import { name, version } from "../package.json";
 
 export default (app: Probot) => {
+  console.info(`running ${name}: ${version}`);
   app.on("issues.labeled", async (context) => {
     const issue = context.payload.issue;
     const label = context.payload.label?.name;
@@ -16,7 +18,13 @@ export default (app: Probot) => {
       const zapRequest = comments.data.map((comment) => parseZapReward(comment.body ?? "")).find((request) => request !== null);
 
       if (zapRequest) {
-        const message = `⚡ Zap Reward Request ⚡\nAmount: ${zapRequest.amount} ${zapRequest.currency}\nExpires: ${zapRequest.expireAt}\n🔗 Issue Link: ${issue.html_url}`;
+        const message =
+          `🌟 **Zap Reward Request** 🌟\n\n` +
+          `**Amount:** ${zapRequest.amount} ${zapRequest.currency}\n` +
+          `**Expires On:** ${zapRequest.expireAt}\n\n` +
+          `This reward has been requested for the following issue:\n` +
+          `🔗 [View Issue Here](${issue.html_url})\n\n` +
+          `Thank you for your participation! 🎉`;
         await sendToAll(message);
       }
     }
@@ -26,16 +34,18 @@ export default (app: Probot) => {
     const comment = context.payload.comment.body;
     const issueUrl = context.payload.issue.html_url;
 
-    if (comment.includes("@your-bot")) {
-      const parsedData = parseZapReward(comment);
+    const parsedData = parseZapReward(comment);
 
-      if (parsedData) {
-        const message = `⚡ Zap Reward Request ⚡\nAmount: ${parsedData.amount} ${parsedData.currency}\nExpires: ${parsedData.expireAt}\n🔗 Issue Link: ${issueUrl}`;
-        await sendToAll(message);
-      } else {
-        const fallbackMessage = `👤 Mentioned in issue: ${issueUrl}\n💬 Comment: ${comment}`;
-        await sendToAll(fallbackMessage);
-      }
+    if (parsedData) {
+      const message =
+        `🌟 **Zap Reward Request** 🌟\n\n` +
+        `**Amount:** ${parsedData.amount} ${parsedData.currency}\n` +
+        `**Expires On:** ${parsedData.expireAt}\n\n` +
+        `This reward has been requested for the following issue:\n` +
+        `🔗 [View Issue Here](${issueUrl})\n\n` +
+        `Thank you for your participation! 🎉`;
+
+      await sendToAll(message);
     }
   });
 };
@@ -44,8 +54,8 @@ export default (app: Probot) => {
  * Sends a message to both Telegram and Nostr.
  */
 async function sendToAll(message: string) {
-  const telegram = TransporterFactory.create("telegram");
-  await telegram.send(message);
+  // const telegram = TransporterFactory.create("telegram");
+  // await telegram.send(message);
 
   const nostr = TransporterFactory.create("nostr");
   await nostr.send(message);
