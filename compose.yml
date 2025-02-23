@@ -1,11 +1,43 @@
 version: "3.8"
 
 services:
-  probot-app:
+  zapounty:
+    image: ghcr.io/zigbalthazar/zapounty:v0.0.1
     ports:
-      - "3000:3000"
+      - "6996:3000"
     environment:
-      - TELEGRAM_BOT_TOKEN=your_telegram_bot_token
-      - TELEGRAM_CHAT_ID=your_telegram_chat_id
-      - NOSTR_RELAY_URL=your_nostr_relay_url
-      - NOSTR_PRIVATE_KEY=your_nostr_private_key
+      - NOSTR_PRIVATE_KEY="42a1e100e47e819f6542d9e706ba02220fe8d248c17e4decb0e2907fbddfe69b"
+      - BOT_TOKEN="7941173354:AAFYCZhL3QCBpx4seJtNOv2tmuXiTamn81A"
+      - TELEGRAM_CHAT_ID="-1002377664130"
+      - NOSTR_RELAYS="wss://jellyfish.land"
+      - APP_ID=1155149
+      - WEBHOOK_SECRET="alizdeh"
+      - PRIVATE_KEY=
+                -----BEGIN RSA PRIVATE KEY-----
+                MIIEpAIBAAKCAQEA2jpNTOnPH3qMdL+iBkSsIyMzT8hf11HArBnCVWfHma9uid9j
+                6BNVwSB4ZX3E+Ug49EOtJOKXy+fwNeW2/h8ZvK1b08LjAP6yQ0QkmIyhV7Z9Q4kn
+                kUiAgd7qdiA7ph6kHS+qP946yjkeTLSGl5tehH2vvokBJNQd2OS2GP3833ikIxqj
+                s/l/yHxDivSHgKta40OJKzPJyYSk08Sn6Aq2MvFqbGvpAd2K4r4g9LNGBGBImCTZ
+                nLQmfNRA+lv6g7zyChjplLiOXmdB7smJKs0EQIi4W9y6Nd24XJHAcRxPXSggqpZn
+                FfY66YBwLOGbc5NOo7B7R+4i+E06emLV+N+G8QIDAQABAoIBAFpuipXy1ef/irDe
+                sK/USVkOPzcym7TIpgUrb4KgzO/86NutfOMxD/pGEF5Obg+3RBLE8L02QR04ciyD
+                kv9ft/SeCk2IlzVUVl7VoCyvKjUE5IfWEFV+K/Klg5eL5+wBCpUlqXFqEAa5ALtc
+                m+G7esGArBFTCOxQEkZNEMDuj5myyjiOujaO7Tul+YGe8lpMynXzddfp+Tmp2pRA
+                ht4gNFFZmo6JO2H6gJGnfTAVgzxkqHv0QIMatGy+kzgy+V+l31eg9jIwtURfyJ+E
+                u/d2ly4BaTyCG/nWKI1zrA2nxL8gUqmUIueDRX8xeTW+1x4e60CvwY0SpnzSpLkc
+                Vcvn5hkCgYEA/ijfxBfO/BedVOOeHcYUrQZO0R/I/N9hTAnpdi/x6yOqY1uA3P7e
+                CfLSc02dWYExG+3AHHjkhhJDc9wHEF6A0sOcROzdr9xZCeG5iHtXnCgkST71EDwX
+                09VeHK1zIb2bjkbDxakHfhhmrlHdZNbiXnMnDwJtScxgxw6NEFxQOJcCgYEA287S
+                f3y1iScaa5gLNccwsrOEwUnNY5acVz3YmdE3ocbPAzgFQLsrq5SUO1pnxQRdEoey
+                nVxDYuLuKOxtS40Z5THvRNXw7o9uVtM6igGTUdfyzCbFYqNGnWaad3eJGyh3O447
+                0uEZ0z8/WHoE5xn3c/koN2tzp9bUvQ/cpQNY5bcCgYBfGlZY3vvRsthpal7BD1yv
+                PdwCPp2Lmd6jgFX+poQkk4zvbs7yYuAc4uLCyHkng8MnizhGryn7zRu2X8+43VPh
+                CdcQp31wj8g1fWRaYKTwxsiFK+yxbXsRBhcYLgMVzghGHc6lyNEH6wOJGRL557p+
+                0yH7aNISOkrAUX6Rb6mI8wKBgQDJcDUAmK1VT/yqdeBwHGfInTQgXx5XEgOdABSs
+                gkvVenjknkZSGDXhPHzMGAHZUDJrdOh/xboLuaRA5MsU3e7JWIXKM7ZlKhUYhOO0
+                7dSwwJLF/RIPX0qrnQgaS/Xeaas7bRHuJFSif+fxkYFEuUtJgSEWCOco/Xxg91Rh
+                9TtW6QKBgQCP0wfKfv7QQW7H8otgc+q3Iypjkqoy3Mrh+TelP5BobrZOz4Xgmu5d
+                vtkklTi6eo95FHiTF2/phlpMQwZQoog3YjD66qI25UI77k0Or1dL7SC3sW59xdSZ
+                32a+/Z6J1lIQ4IgO8s3xrexJULTvDL+JsxMHN4129KuMQOgirPIYbA==
+                -----END RSA PRIVATE KEY-----
+

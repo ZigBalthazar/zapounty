@@ -35,5 +35,5 @@ RUN npm install --only=production
 # Expose the port your app runs on (default for Probot is 3000)
 EXPOSE 3000
 
-# Command to run your app
-CMD ["node", "dist/main.js"]
+# Command to run your app using Probot
+CMD ["npx", "probot", "run", "./dist/main.js"]
