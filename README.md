@@ -14,12 +14,25 @@ Zapounty is a GitHub app designed to notify the community about any Zap rewards 
 2. **Install the App**: Click on the "Install" button and follow the instructions to install Zapounty for your GitHub organization or account.
 3. **Configure the App**: After installation, configure the app settings to specify which repositories you want to monitor for Zap rewards.
 
-## Usage
+## Getting Started  
 
-Once Zapounty is installed and configured:
+1. **Visit the GitHub Marketplace**  
+   - Go to the GitHub Marketplace and search for **Zapounty**.  
 
-- Zapounty will automatically monitor specified GitHub issues for any associated Zap rewards.
-- Users will receive notifications in real time, ensuring they never miss an opportunity to earn rewards.
+2. **Install the App**  
+   - Click on the **"Install"** button.  
+   - Select the repositories or organizations where you want to enable **Zapounty**.  
+
+3. **Add a Zap Reward to an Issue**  
+   - Apply the `zap reward` label to an existing issue or create a new one.  
+
+4. **Specify the Reward Amount**  
+   - Add a new comment to the issue using the following template:  
+     ```  
+     zap reward:  
+     amount: 2000  
+     ```  
+   - The **amount** should be specified in **satoshis (sats)**.
 
 ## Contributing
 
@@ -35,8 +48,8 @@ Contributions are welcome! If you have ideas for features or improvements, pleas
 
 Stay connected with us on social media:
 
-- **Nostr**: [@Zapounty](https://njump.me/npub1ulvrsldmdlwrzh026plfylr22rl8c068yd4uu7ww0s0s8zac486qzwrlwd) (Replace with your actual Nostr handle)
-<!-- - **Telegram**: [Join our Telegram group](https://t.me/your_telegram_group) (Replace with your actual Telegram group link) -->
+- **Nostr**: [@Zapounty](https://njump.me/npub1ulvrsldmdlwrzh026plfylr22rl8c068yd4uu7ww0s0s8zac486qzwrlwd)
+- **Telegram**: [Join our Telegram channel](https://t.me/zapounty)
 
 ## License
 
