@@ -70,7 +70,7 @@ function generateMessage(
   return (
     `🌟 New Zap Notification 🌟\n\n` +
     `**Issue:** 📌 ${title}\n\n` +
-    (amount ? `**Amount:** ${amount} ⚡ Sats \n\n` : "") +
+    (amount ? `**Amount:** ${amount} ⚡ Sats \n\n` : "???") +
     `**Language:** 💻 ${language}\n\n` +
     `Triggered by: ${trigger}\n\n` +
     `🔗 View Issue Here:\n${link}\n\n` +

@@ -24,12 +24,18 @@
    - Select the repositories or organizations where you want to enable **Zapounty**.  
 
 3. **Add a Zap Reward to an Issue**  
-   - Apply the `zap reward` label to an existing issue or create a new one.  
+   - Apply the `zap reward` or `zapounty` label to an existing issue or create a new one.  
 
 4. **Specify the Reward Amount**  
    - Add a new comment to the issue using the following template:  
      ```  
      zap reward:  
+     amount: 2000  
+     ```  
+     or
+
+     ```  
+     zapounty:  
      amount: 2000  
      ```  
    - The **amount** should be specified in **satoshis (sats)**.
