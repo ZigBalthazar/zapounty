@@ -9,23 +9,11 @@ export default (app: Probot) => {
     try {
       const issue = context.payload.issue;
       const label = context.payload.label?.name;
-      const lang = context.payload.repository.language ?? "Unknown"
+      const lang = context.payload.repository.language ?? "Unknown";
 
-      if (label === "zap reward") {
-        const comments = await context.octokit.issues.listComments({
-          owner: context.payload.repository.owner.login,
-          repo: context.payload.repository.name,
-          issue_number: issue.number,
-        });
-
-        const zapRequest = comments.data
-          .map((comment) => parseZapReward(comment.body ?? ""))
-          .find((request) => request !== null);
-
-        if (zapRequest) {
-          const message = generateMessage(zapRequest.amount, issue.title, issue.html_url, lang);
-          await sendToAll(message);
-        }
+      if (isZapLabel(label)) {
+        const message = generateMessage(undefined, issue.title, issue.html_url, lang, label);
+        await sendToAll(message);
       }
     } catch (error) {
       console.error("Error processing labeled issue:", error);
@@ -34,13 +22,12 @@ export default (app: Probot) => {
 
   app.on("issue_comment.created", async (context) => {
     try {
-      const comment = context.payload.comment.body;
+      const comment = context.payload.comment.body ?? "";
       const issue = context.payload.issue;
-      const lang = context.payload.repository.language?? "Unknown"
-      const zapRequest = parseZapReward(comment);
+      const lang = context.payload.repository.language ?? "Unknown";
 
-      if (zapRequest) {
-        const message = generateMessage(zapRequest.amount, issue.title, issue.html_url, lang);
+      if (isZapComment(comment)) {
+        const message = generateMessage(undefined, issue.title, issue.html_url, lang, comment);
         await sendToAll(message);
       }
     } catch (error) {
@@ -49,9 +36,14 @@ export default (app: Probot) => {
   });
 };
 
-/**
- * Sends a message to both Telegram and Nostr.
- */
+function isZapLabel(label?: string) {
+  return label === "zap reward" || label === "zapounty";
+}
+
+function isZapComment(comment: string) {
+  return /zap reward|zapounty/i.test(comment);
+}
+
 async function sendToAll(message: string) {
   try {
     const telegram = TransporterFactory.create("telegram");
@@ -68,33 +60,19 @@ async function sendToAll(message: string) {
   }
 }
 
-/**
- * Parses a Zap Reward template from the comment.
- */
-function parseZapReward(comment: string) {
-  try {
-    const zapRegex = /zap reward:\s*amount:\s*(\d+)/i;
-    const match = comment.match(zapRegex);
-
-    if (match) {
-      return {
-        amount: parseInt(match[1], 10),
-      };
-    }
-    return null;
-  } catch (error) {
-    console.error("Error parsing Zap Reward:", error);
-    return null;
-  }
-}
-
-function generateMessage(amount: number, title: string, link: string, language: string): string {
+function generateMessage(
+  amount: number | undefined,
+  title: string,
+  link: string,
+  language: string,
+  trigger: string
+): string {
   return (
-    `🌟 New Zap Reward Request 🌟\n\n` +
+    `🌟 New Zap Notification 🌟\n\n` +
     `**Issue:** 📌 ${title}\n\n` +
-    `**Amount:** ${amount} ⚡ Sats \n\n` +
+    (amount ? `**Amount:** ${amount} ⚡ Sats \n\n` : "") +
     `**Language:** 💻 ${language}\n\n` +
-    `This reward has been requested for the following issue:\n` +
+    `Triggered by: ${trigger}\n\n` +
     `🔗 View Issue Here:\n${link}\n\n` +
     `Thank you for your participation! 🎉\n\n` +
     `#devstr #dev #bounty #zap #job #jobstr`

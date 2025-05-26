@@ -39,6 +39,8 @@ export class NostrTransporter implements ITransporter {
       content: message,
     };
 
+    
+
     const signedEvent = finalizeEvent(event, this.privateKey);
 
     let successfulRelays = 0;
